@@ -25,7 +25,7 @@ struct IpAddress {
 }
 fn main() {
     let ipaddress = IpAddress {
-        kind: (IpAddr::V4(127, 0, 0, 1)),
+        kind: IpAddr::V4(127, 0, 0, 1),
         address: String::from("IpV4"),
     };
     println!("IpAddress: {:?}", ipaddress.kind);
