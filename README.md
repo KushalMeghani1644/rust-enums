@@ -13,4 +13,4 @@ This project demonstrates core Rust concepts like custom `enum` types, pattern m
 
 ## 📂 Project Structure
 
-This code isn't vibe coded and AI was used for assistance to get rid of warnings in the code :D
+This code isn't vibe coded but AI was used for assistance to get rid of warnings in the code :D
