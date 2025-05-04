@@ -3,30 +3,28 @@ enum IpAddr {
     V4(u8, u8, u8, u8),
     V6(String),
 }
-
-enum message {
-    Quit,
-    Move { x: i32, y: i32 },
-    Write(String),
-}
-
-impl message {
-    fn write(&self) {
-        match self {
-            message::Quit => println!("Quit"),
-            message::Move { x, y } => println!("Move to x: {}, y: {}", x, y),
-            message::Write(text) => println!("Write: {}", text),
-        }
-    }
-}
+#[derive(Debug)]
 struct IpAddress {
     kind: IpAddr,
     address: String,
 }
+impl IpAddress {
+    fn display(&self) {
+        match &self.kind {
+            IpAddr::V4(a, b, c, d) => println!("IPv4: {}.{}.{}.{}", a, b, c, d),
+            IpAddr::V6(addr) => println!("IPv6: {}", addr),
+        }
+    }
+}
 fn main() {
-    let ipaddress = IpAddress {
+    let home = IpAddress {
         kind: IpAddr::V4(127, 0, 0, 1),
-        address: String::from("IpV4"),
+        address: String::from("127,0,0,1"),
     };
-    println!("IpAddress: {:?}", ipaddress.kind);
+    let loopback = IpAddress {
+        kind: IpAddr::V6(String::from("::1")),
+        address: String::from("::1"),
+    };
+    home.display();
+    loopback.display();
 }
